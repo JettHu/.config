@@ -1,0 +1,2 @@
+# .config
+jetthu's dotfiles
