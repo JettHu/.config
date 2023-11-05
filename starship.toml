@@ -11,6 +11,12 @@
 # 
  
 # ---------------------------------------------------------------
+
+# right_format = """
+# [\uE0B2](fg:bar_three)\
+# $time\
+# """
+
 format = """
 [░▒▓](#2e3440)\
 $os\
@@ -18,14 +24,12 @@ $username\
 [](bg:#3b4252 fg:#2e3440)\
 $directory\
 [](fg:#3b4252 bg:#434c5e)\
-$git_branch\
-$git_status\
 [](fg:#434c5e bg:#4c566a)\
 $c\
+$golang\
 $python\
 $elixir\
 $elm\
-$golang\
 $haskell\
 $java\
 $julia\
@@ -33,14 +37,25 @@ $nodejs\
 $nim\
 $rust\
 $scala\
+$dart\
+$lua\
+$php\
+$rlang\
+$ruby\
 [](fg:#4c566a bg:#5e81ac)\
 $docker_context\
-[](fg:#5e81ac bg:#6272a4)\
-$time\
-[ ](fg:#6272a4)\
+[](fg:#5e81ac)\
 \n
 $cmd_duration\
 $character\
+"""
+
+right_format = """
+[\uE0B2](fg:#434c5e)
+$git_branch\
+$git_status\
+[\uE0B2](fg:#394260 bg:#434c5e)
+$time\
 """
 #add_newline = false
 
@@ -51,7 +66,7 @@ disabled = false
 show_always = true
 style_user = "bg:#2e3440"
 style_root = "bg:#9A348E"
-format = '[ $user ]($style)'
+format = '[ $user ]($style)'
 disabled = false
 
 [os]
@@ -65,10 +80,19 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
-"Documents" = " "
+"Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:#434c5e"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#434c5e"
+format = '[$all_status$ahead_behind ]($style)'
 
 [c]
 symbol = " "
@@ -94,15 +118,6 @@ format = '[ $symbol ($version) ]($style)'
 symbol = " "
 style = "bg:#434c5e"
 format = '[ $symbol ($version) ]($style)'
-
-[git_branch]
-symbol = ""
-style = "bg:#434c5e"
-format = '[ $symbol $branch ]($style)'
-
-[git_status]
-style = "bg:#434c5e"
-format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
 symbol = " "
@@ -130,7 +145,7 @@ style = "bg:#434c5e"
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
-symbol = " "
+symbol = " "
 style = "bg:##434c5e"
 format = '[ $symbol ($version) ]($style)'
 
@@ -144,10 +159,35 @@ symbol = " "
 style = "bg:#434c5e"
 format = '[ $symbol ($version) ]($style)'
 
+[dart]
+symbol = ' '
+style = 'bg:#434c5e'
+format = '[ $symbol ($version) ]($style)'
+
+[lua]
+symbol = ' '
+style = 'bg:#434c5e'
+format = '[ $symbol ($version) ]($style)'
+
+[php]
+symbol = ' '
+style = 'bg:#434c5e'
+format = '[ $symbol ($version) ]($style)'
+
+[rlang]
+symbol = 'ﳒ '
+style = 'bg:#434c5e'
+format = '[ $symbol ($version) ]($style)'
+
+[ruby]
+symbol = ' '
+style = 'bg:#434c5e'
+format = '[ $symbol ($version) ]($style)'
+
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#6272a4"
+style = "bg:#394260"
 format = '[  $time ]($style)'
 	
 [character]
